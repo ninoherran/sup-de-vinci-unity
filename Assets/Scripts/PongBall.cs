@@ -5,7 +5,7 @@ using UnityEngine.UI; // appel de la propriété "UnityEngine.UI" suivant pour acc
 
 public class PongBall : MonoBehaviour
 {
-    [SerializeField] private float speed = 10;
+    [SerializeField] private float speed = 9;
     [SerializeField] private Vector3 direction = new Vector3(1, 0, 0) ;
     [SerializeField] private Text playerScoreText;
     [SerializeField] private TextMeshProUGUI botScoreText;
@@ -29,6 +29,7 @@ public class PongBall : MonoBehaviour
     {
         //appel de la fonction qui va permet de donner une direction initiale à la balle au lancement du jeu
         SetDirection();
+        ball_AudioBall.PlayOneShot(audioBall);
     }
 
     void Update()
@@ -85,6 +86,8 @@ public class PongBall : MonoBehaviour
                 // alors on incrémente une valeur daans laquelle "PongAi" sera faible.
                 collision.gameObject.GetComponent<PongAi>().AddBounce();
             }
+
+            ball_AudioBall.PlayOneShot(audioColliPlayer);
         }
 
         // Si notre boule touche le mur 
@@ -93,7 +96,5 @@ public class PongBall : MonoBehaviour
             // On inverse la direction sur l'axe "X" 
             direction.x *= -1;
         }
-
-        ball_AudioBall.PlayOneShot(audioBall);
     }
 }

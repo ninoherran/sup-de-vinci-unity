@@ -6,7 +6,7 @@ using UnityEngine.UI; // appel de la propriété "UnityEngine.UI" suivant pour acc
 public class PongBall : MonoBehaviour
 {
     [SerializeField] private float speed = 9;
-    [SerializeField] private Vector3 direction = new Vector3(1, 0, 0) ;
+    [SerializeField] private Vector3 direction = new Vector3(1, 0, 0);
     [SerializeField] private Text playerScoreText;
     [SerializeField] private TextMeshProUGUI botScoreText;
     private float zMaxDistance = 15f; // Distance que la balle doit parcourir

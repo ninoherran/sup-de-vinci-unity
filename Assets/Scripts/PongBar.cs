@@ -12,7 +12,7 @@ public class PongBar : MonoBehaviour // cette dérive permet d'attacher le script
     //distance max à parcourir sur l'axe "X" afin d'empêcher la raquette de passer outre le mur
     private float xMaxDistance = 9f;
 
-    
+
     void Update()
     {
         float move; // mouvement appliquée sur la raquette

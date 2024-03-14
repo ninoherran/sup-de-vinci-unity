@@ -1,19 +1,19 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace DefaultNamespace.saveManager
 {
     public class SaveScript : MonoBehaviour
     {
-        void Start()
-        {
-            var input = gameObject.GetComponent<InputField>(); 
-            input.onEndEdit.AddListener(SaveGame);
-        }
+        [SerializeField] private TMP_InputField inputField;
 
-        private void SaveGame(string saveName)
+        public void SaveGame()
         {
+            string saveName = inputField.text;
             SaveManager.Save(saveName, ScoreComputer.PlayerScore, ScoreComputer.BotScore);
+            SceneManager.LoadScene("Main Menu");
         }
     }
 }

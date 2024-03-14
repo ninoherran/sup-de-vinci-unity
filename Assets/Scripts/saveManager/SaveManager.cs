@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,7 +8,7 @@ namespace DefaultNamespace.saveManager
 {
     public static class SaveManager
     {
-        private static string _savePath = Application.dataPath + "/save.json";
+        private static string _savePath = Application.persistentDataPath + Path.DirectorySeparatorChar + "sasave.json";
         
         public static void Save(string saveName, int playerScore, int botScore)
         {
@@ -23,9 +24,9 @@ namespace DefaultNamespace.saveManager
         {
             if (!File.Exists(_savePath))
             {
+                File.Create(_savePath);
                 return new List<SaveData>();
             }
-
             string json = File.ReadAllText(_savePath);
             return JsonUtility.FromJson<IList<SaveData>>(json);
         }

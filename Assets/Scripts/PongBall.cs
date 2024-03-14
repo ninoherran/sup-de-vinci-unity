@@ -33,6 +33,7 @@ public class PongBall : MonoBehaviour
 
     void Update()
     {
+        ball_AudioBall.PlayOneShot(audioBall);
         //on applique une translation sur le d�placement de la balle
         transform.Translate(direction * speed * Time.deltaTime);
 
@@ -85,6 +86,8 @@ public class PongBall : MonoBehaviour
                 // alors on incr�mente une valeur daans laquelle "PongAi" sera faible.
                 collision.gameObject.GetComponent<PongAi>().AddBounce();
             }
+
+            ball_AudioBall.PlayOneShot(audioColliPlayer);
         }
 
         // Si notre boule touche le mur 
@@ -93,7 +96,5 @@ public class PongBall : MonoBehaviour
             // On inverse la direction sur l'axe "X" 
             direction.x *= -1;
         }
-
-        ball_AudioBall.PlayOneShot(audioBall);
     }
 }

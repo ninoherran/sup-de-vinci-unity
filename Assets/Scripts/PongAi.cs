@@ -23,8 +23,6 @@ public class PongAi : MonoBehaviour
     // Permet de récupérer la composante qui va permettre de gérer du son
     private AudioSource ai_AudioComputer;
 
-    public Action onLevelPassed;
-
     private void Awake()
     {
         ai_AudioComputer = GetComponent<AudioSource>();
@@ -48,16 +46,13 @@ public class PongAi : MonoBehaviour
     {
         // On augmente la valeur de nbShots
         nbShots++;
-        if (nbShots >= 2)
+        if (nbShots >= 5)
         {
             // On reinitialize
             nbShots = 0;
-            Debug.Log("Level passed!");
-            
-            onLevelPassed?.Invoke();
 
             // On diminue le temps de latence
-            latency += 0.25f;
+            latency -= 0.25f;
         }
     }
 }

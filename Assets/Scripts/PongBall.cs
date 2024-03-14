@@ -7,7 +7,7 @@ public class PongBall : MonoBehaviour
 {
     [SerializeField] private float speed = 10;
     [SerializeField] private Vector3 direction = new Vector3(1, 0, 0) ;
-    [SerializeField] private Text playerScoreText;
+    [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private TextMeshProUGUI botScoreText;
     private float zMaxDistance = 15f; // Distance que la balle doit parcourir
     private int scorePlayer = 0;
@@ -34,7 +34,6 @@ public class PongBall : MonoBehaviour
         
         // Récupération de l'instance du pong Ai.
         PongAi pongAi = FindObjectOfType<PongAi>();
-        pongAi.onLevelPassed += () => speed += 5;
     }
 
     void Update()
@@ -61,8 +60,8 @@ public class PongBall : MonoBehaviour
     public void SetDirection()
     {
         // Acceder � la propri�t� "text" de notre "scoreText" et lui affecter le score du joueur "+" celui de l'ordinateur
-        playerScoreText.text = "Player : " + scorePlayer.ToString();
-        botScoreText.text = "Bot : " + scoreComputer.ToString();
+        playerScoreText.text = scorePlayer.ToString();
+        botScoreText.text = scoreComputer.ToString();
 
         // On r�nitialise la position de la balle au centre � chaque score
         transform.position = new Vector3(0, .5f, 0);

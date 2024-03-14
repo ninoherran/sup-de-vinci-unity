@@ -7,12 +7,12 @@ public class PongBar : MonoBehaviour // cette dérive permet d'attacher le script
 {
     //variable "isHumanPlayer" de type bool pour la raquette du joueur
     public bool isHumanPlayer = false;
-    public float speed = 15; // variable de vitesse du déplacement de la raquette
+    public float speed = 12; // variable de vitesse du déplacement de la raquette
 
     //distance max à parcourir sur l'axe "X" afin d'empêcher la raquette de passer outre le mur
     private float xMaxDistance = 9f;
 
-    
+
     void Update()
     {
         float move; // mouvement appliquée sur la raquette

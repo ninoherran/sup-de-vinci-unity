@@ -7,7 +7,7 @@ public class PongBall : MonoBehaviour
 {
     [SerializeField] private float speed = 10;
     [SerializeField] private Vector3 direction = new Vector3(1, 0, 0) ;
-    [SerializeField] private Text playerScoreText;
+    [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private TextMeshProUGUI botScoreText;
     private float zMaxDistance = 15f; // Distance que la balle doit parcourir
     private int scorePlayer = 0;
@@ -33,6 +33,8 @@ public class PongBall : MonoBehaviour
 
     void Update()
     {
+        ball_AudioBall.PlayOneShot(audioBall);
+
         //on applique une translation sur le déplacement de la balle
         transform.Translate(direction * speed * Time.deltaTime);
 
@@ -85,6 +87,7 @@ public class PongBall : MonoBehaviour
                 // alors on incrémente une valeur daans laquelle "PongAi" sera faible.
                 collision.gameObject.GetComponent<PongAi>().AddBounce();
             }
+            ball_AudioBall.PlayOneShot(audioColliPlayer);
         }
 
         // Si notre boule touche le mur 
@@ -93,7 +96,6 @@ public class PongBall : MonoBehaviour
             // On inverse la direction sur l'axe "X" 
             direction.x *= -1;
         }
-
-        ball_AudioBall.PlayOneShot(audioBall);
     }
+
 }

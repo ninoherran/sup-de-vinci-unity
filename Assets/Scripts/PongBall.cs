@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // appel de la propriété "UnityEngine.UI" suivant pour accéder à l'interface user pour afficher le score
+using UnityEngine.UI; // appel de la propriï¿½tï¿½ "UnityEngine.UI" suivant pour accï¿½der ï¿½ l'interface user pour afficher le score
 
 public class PongBall : MonoBehaviour
 {
@@ -17,23 +17,29 @@ public class PongBall : MonoBehaviour
     [SerializeField] private AudioClip audioBall = null;
     [SerializeField] private AudioClip audioColliPlayer = null;
 
-    // Permet de récupérer la composante qui va permettre de gérer du son
+    // Permet de rï¿½cupï¿½rer la composante qui va permettre de gï¿½rer du son
     private AudioSource ball_AudioBall;
 
     private void Awake()
     {
         ball_AudioBall = GetComponent<AudioSource>();
     }
+    
+    
 
     private void Start()
     {
-        //appel de la fonction qui va permet de donner une direction initiale à la balle au lancement du jeu
+        //appel de la fonction qui va permet de donner une direction initiale ï¿½ la balle au lancement du jeu
         SetDirection();
+        
+        // RÃ©cupÃ©ration de l'instance du pong Ai.
+        PongAi pongAi = FindObjectOfType<PongAi>();
+        pongAi.onLevelPassed += () => speed += 5;
     }
 
     void Update()
     {
-        //on applique une translation sur le déplacement de la balle
+        //on applique une translation sur le dï¿½placement de la balle
         transform.Translate(direction * speed * Time.deltaTime);
 
         // IA gange
@@ -51,27 +57,27 @@ public class PongBall : MonoBehaviour
         }
     }
 
-    // On crée la fonction SetDirection
+    // On crï¿½e la fonction SetDirection
     public void SetDirection()
     {
-        // Acceder à la propriété "text" de notre "scoreText" et lui affecter le score du joueur "+" celui de l'ordinateur
+        // Acceder ï¿½ la propriï¿½tï¿½ "text" de notre "scoreText" et lui affecter le score du joueur "+" celui de l'ordinateur
         playerScoreText.text = "Player : " + scorePlayer.ToString();
         botScoreText.text = "Bot : " + scoreComputer.ToString();
 
-        // On rénitialise la position de la balle au centre à chaque score
+        // On rï¿½nitialise la position de la balle au centre ï¿½ chaque score
         transform.position = new Vector3(0, .5f, 0);
 
-        // Donner une direction initiale aléatoire grâce à Random.Range qui va nous permettre d'avoir un mouvement aléatoire
+        // Donner une direction initiale alï¿½atoire grï¿½ce ï¿½ Random.Range qui va nous permettre d'avoir un mouvement alï¿½atoire
         // initiale dans la balle. Puis on fait un "normalized" pour que la vitesse soit constante.
         direction = new Vector3(Random.Range(0.75f, 1.75f), 0, -1).normalized;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Si le tag de l'objet touché(colllision) est égale à bar
+        //Si le tag de l'objet touchï¿½(colllision) est ï¿½gale ï¿½ bar
         if (collision.gameObject.tag == "Bar")
         {
-            // On vérifie si le joueur est touché ou l'ordinateur
+            // On vï¿½rifie si le joueur est touchï¿½ ou l'ordinateur
             bool isPlayer = collision.gameObject.GetComponent<PongBar>().isHumanPlayer;
             if ((isPlayer && direction.z < 0) || (!isPlayer && direction.z > 0))
             {
@@ -79,10 +85,10 @@ public class PongBall : MonoBehaviour
             }
 
             // Condition de faiblesse de l'ordinateur
-            // si l'ordinateur est touché 
+            // si l'ordinateur est touchï¿½ 
             if (!isPlayer)
             {
-                // alors on incrémente une valeur daans laquelle "PongAi" sera faible.
+                // alors on incrï¿½mente une valeur daans laquelle "PongAi" sera faible.
                 collision.gameObject.GetComponent<PongAi>().AddBounce();
             }
         }

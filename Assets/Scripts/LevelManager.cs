@@ -9,7 +9,8 @@ namespace DefaultNamespace
         {
             if (ScoreComputer.PlayerScore == 1)
                 OpenLevel(2);
-            else if (ScoreComputer.PlayerScore == 2) OpenLevel(3);
+            else if (ScoreComputer.PlayerScore == 2) 
+                OpenLevel(3);
         }
         
         public void OpenLevel(int levelId)

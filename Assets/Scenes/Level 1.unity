@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1025,11 +1025,21 @@ PrefabInstance:
       propertyPath: playerScoreText
       value: 
       objectReference: {fileID: 1695905861}
+    - target: {fileID: 682433420027050869, guid: 4b022140facae1f46b2f890cc0021a90,
+        type: 3}
+      propertyPath: audioColliPlayer
+      value: 
+      objectReference: {fileID: 8300000, guid: eb85db61042a92d42a6b45f73d0980d0, type: 3}
     - target: {fileID: 1903476873057220662, guid: 4b022140facae1f46b2f890cc0021a90,
         type: 3}
       propertyPath: m_Name
       value: PingPong
       objectReference: {fileID: 0}
+    - target: {fileID: 6191714297166865593, guid: 4b022140facae1f46b2f890cc0021a90,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 103fd0372e1a2f64eab75fb2e2008fa0, type: 3}
     - target: {fileID: 6299302009189849652, guid: 4b022140facae1f46b2f890cc0021a90,
         type: 3}
       propertyPath: m_LocalPosition.x

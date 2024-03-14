@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine; // Propriété qui permet d'utiliser les fonctionnalités propres à unity
+using UnityEngine; // Propriï¿½tï¿½ qui permet d'utiliser les fonctionnalitï¿½s propres ï¿½ unity
 
-//Script de déplacement des raquettes
-public class PongBar : MonoBehaviour // cette dérive permet d'attacher le script à un objet
+//Script de dï¿½placement des raquettes
+public class PongBar : MonoBehaviour // cette dï¿½rive permet d'attacher le script ï¿½ un objet
 {
     //variable "isHumanPlayer" de type bool pour la raquette du joueur
     public bool isHumanPlayer = false;
-    public float speed = 15; // variable de vitesse du déplacement de la raquette
+    public float speed = 15; // variable de vitesse du dï¿½placement de la raquette
 
-    //distance max à parcourir sur l'axe "X" afin d'empêcher la raquette de passer outre le mur
+    //distance max ï¿½ parcourir sur l'axe "X" afin d'empï¿½cher la raquette de passer outre le mur
     private float xMaxDistance = 9f;
-
     
     void Update()
     {
-        float move; // mouvement appliquée sur la raquette
+        float move; // mouvement appliquï¿½e sur la raquette
 
         if (isHumanPlayer)
         {
@@ -26,7 +25,7 @@ public class PongBar : MonoBehaviour // cette dérive permet d'attacher le script
             move = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         }
 
-        //on applique une translation sur le déplacement "X" de la raquette
+        //on applique une translation sur le dï¿½placement "X" de la raquette
         transform.Translate(move * Vector3.right);
 
         //condition de test de la position

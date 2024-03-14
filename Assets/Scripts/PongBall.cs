@@ -24,11 +24,17 @@ public class PongBall : MonoBehaviour
     {
         ball_AudioBall = GetComponent<AudioSource>();
     }
+    
+    
 
     private void Start()
     {
         //appel de la fonction qui va permet de donner une direction initiale � la balle au lancement du jeu
         SetDirection();
+        
+        // Récupération de l'instance du pong Ai.
+        PongAi pongAi = FindObjectOfType<PongAi>();
+        pongAi.onLevelPassed += () => speed += 5;
     }
 
     void Update()

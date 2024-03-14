@@ -607,10 +607,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5103962011773917565, guid: 7a955684f6981b042a5d392d25644b5c,
+        type: 3}
+      propertyPath: m_text
+      value: LEVEL 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5392946935621365719, guid: 7a955684f6981b042a5d392d25644b5c,
         type: 3}
       propertyPath: m_Name
       value: GameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490428570674537844, guid: 7a955684f6981b042a5d392d25644b5c,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6146264232646152523, guid: 7a955684f6981b042a5d392d25644b5c,
         type: 3}

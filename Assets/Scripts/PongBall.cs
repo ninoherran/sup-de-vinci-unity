@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
@@ -10,8 +11,6 @@ public class PongBall : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private TextMeshProUGUI botScoreText;
     private float zMaxDistance = 15f; // Distance que la balle doit parcourir
-    private int scorePlayer = 0;
-    private int scoreComputer = 0;
 
     // Permet d'indiquer dans l'inspector l'AudioClip qui s'occupera du son
     [SerializeField] private AudioClip audioBall = null;
@@ -44,14 +43,14 @@ public class PongBall : MonoBehaviour
         // IA gange
         if (transform.position.z < -zMaxDistance && direction.z < 0)
         {
-            scoreComputer++;
+            ScoreComputer.AddBotScore();
             SetDirection();
         }
 
         // Joueur gange
         if (transform.position.z > zMaxDistance && direction.z > 0)
         {
-            scorePlayer++;
+            ScoreComputer.AddPlayerScore();
             SetDirection();
         }
     }
@@ -60,8 +59,8 @@ public class PongBall : MonoBehaviour
     public void SetDirection()
     {
         // Acceder � la propri�t� "text" de notre "scoreText" et lui affecter le score du joueur "+" celui de l'ordinateur
-        playerScoreText.text = scorePlayer.ToString();
-        botScoreText.text = scoreComputer.ToString();
+        playerScoreText.text = ScoreComputer.PlayerScore.ToString();
+        botScoreText.text = ScoreComputer.BotScore.ToString();
 
         // On r�nitialise la position de la balle au centre � chaque score
         transform.position = new Vector3(0, .5f, 0);
